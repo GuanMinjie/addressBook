@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @phone_book.contact %>
+</p>
+
+<p>
+  <strong>Phonenumber:</strong>
+  <%= @phone_book.phoneNumber %>
+</p>
+
+<%= link_to 'Edit', edit_phone_book_path(@phone_book) %> |
+<%= link_to 'Back', phone_books_path %>

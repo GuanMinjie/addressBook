@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>电话本</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>联系人</th>
+      <th>电话号码</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <table border="3">
+    <tr>
+      <th>编号</th>
+      <th>姓名</th>
+      <th>联系方式</th>
+    </tr>
+    <% @phone_books.each do |phone_book| %>
+        <tr>
+          <td><%= phone_book.id %></td>
+          <td><%= phone_book.contact %></td>
+          <td><%= phone_book.phoneNumber %></td>
+          <td><%= link_to '显示', phone_book %></td>
+          <td><%= link_to '编辑', edit_phone_book_path(phone_book) %></td>
+          <td><%= link_to '删除', phone_book, method: :delete, data: { confirm: '确定删除?' } %></td>
+        </tr>
+    <% end %>
+
+  </table>
+
+  <tbody>
+    <% @phone_books.each do |phone_book| %>
+      <tr>
+        <td><%= phone_book.id %></td>
+        <td><%= phone_book.contact %></td>
+        <td><%= phone_book.phoneNumber %></td>
+        <td><%= link_to '显示', phone_book %></td>
+        <td><%= link_to '编辑', edit_phone_book_path(phone_book) %></td>
+        <td><%= link_to '删除', phone_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '添加联系人', new_phone_book_path %>
